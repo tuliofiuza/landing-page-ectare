@@ -1,0 +1,16 @@
+{
+    "name": "landing-page-ectare",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "gulp": "gulp watcher"
+    },
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "devDependencies": {
+        "gulp": "^5.0.1",
+        "gulp-sass": "^6.0.1",
+        "sass": "^1.93.0"
+    }
+}
