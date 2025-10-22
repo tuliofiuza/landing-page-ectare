@@ -7,8 +7,6 @@
 *,
 *::before,
 *::after {
-    cursor: default;
-
     box-sizing: border-box;
 
     margin: 0;
@@ -25,7 +23,13 @@ body {
     font-family: var(--font-family);
 }
 
+a {
+    width: fit-content;
+}
+
 button {
+    cursor: pointer;
+
     width: fit-content;
 
     height: 3rem;
@@ -76,22 +80,22 @@ hr {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 700;
 }
 
 h2 {
-    font-size: 2rem;
-    font-weight: 300;
-}
-
-h3 {
     font-size: 1.5rem;
     font-weight: 300;
 }
 
-h4 {
+h3 {
     font-size: 1.25rem;
+    font-weight: 300;
+}
+
+h4 {
+    font-size: 1rem;
     font-weight: 300;
 }
 
@@ -128,6 +132,10 @@ section {
             height: 100%;
 
             margin: 0 auto;
+
+            h3 {
+                text-wrap: balance;
+            }
         }
     }
 
@@ -139,7 +147,7 @@ section {
         gap: 4rem;
         align-items: center;
 
-        padding: 4rem 5%;
+        padding: 4rem 10%;
 
         * {
             z-index: 1100;
@@ -161,7 +169,7 @@ section {
         }
 
         &.second-wrapper {
-            padding: 4rem 10%;
+            padding: 4rem 20%;
 
             &::before {
                 content: "";
@@ -175,10 +183,6 @@ section {
 
                 background: radial-gradient(54.03% 55.47% at 121.86% 55.43%, #874D19 1.22%, transparent 100%);
             }
-        }
-
-        &.third-wrapper {
-            padding: 4rem 15%;
         }
 
         &.fourth-wrapper {
@@ -226,7 +230,7 @@ section {
             justify-content: center;
 
             &.ectare img {
-                width: 80%;
+                width: 70%;
             }
 
             &.sette img {
@@ -241,7 +245,7 @@ section {
 
     &.product-card {
         display: flex;
-        gap: 1.5rem;
+        gap: 1rem;
         flex-direction: column;
 
         .product-card-header {
@@ -254,6 +258,10 @@ section {
 
         h3 {
             font-weight: 700;
+        }
+
+        &:last-child h4 {
+            text-wrap: balance;
         }
     }
 
@@ -284,7 +292,7 @@ section {
         border-top-right-radius: 2.5rem;
         border-bottom-right-radius: 2.5rem;
 
-        background-position: 47% 0%;
+        background-position: 38% 0%;
         background-repeat: no-repeat;
         background-size: auto 123%;
         background-image: url("/assets/images/first-card-image.jpg");
@@ -300,7 +308,7 @@ section {
         text-align: end;
         text-wrap: balance;
 
-        h2 {
+        h1 {
             font-weight: 700;
             color: #e47a1b;
         }
@@ -327,14 +335,6 @@ section {
         grid-template-columns: 3fr 1fr;
     }
 
-    * {
-        text-wrap: balance;
-
-        &:nth-child(even) {
-            text-align: right;
-        }
-    }
-
     img {
         width: 100%;
     }
@@ -343,7 +343,15 @@ section {
         display: flex;
         gap: 1rem;
         flex-direction: column;
+
+        &:nth-child(even) h4 {
+            text-align: right;
+        }
     }
+}
+
+.info-item h3:nth-child(even) {
+    text-align: right;
 }
 
 .text-center {
@@ -352,4 +360,131 @@ section {
 
 .w-100 {
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    :root {
+        font-size: 14px;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    hr {
+        margin: 0 20%;
+
+        border-top: 1px solid rgba(228, 122, 27, 0.50);
+    }
+
+    section {
+        min-height: 100dvh;
+
+        &#illustration-panel {
+            height: 100dvh;
+
+            background-position: 40% 50%;
+            background-size: auto 150%;
+        }
+
+        .wrapper {
+            gap: 2rem;
+
+            padding: 2rem 10% !important;
+
+            &.first-wrapper {
+                &::before {
+                    height: unset;
+                    width: 100dvw;
+
+                    bottom: -10%;
+                }
+            }
+
+            &.second-wrapper {
+                &::before {
+                    height: unset;
+                    width: 100dvw;
+
+                    bottom: 10%;
+                }
+            }
+
+            &.fourth-wrapper {
+                &::before {
+                    height: unset;
+                    width: 100dvw;
+
+                    bottom: -35%;
+                }
+            }
+        }
+    }
+
+    .card {
+        &.product-card {
+            gap: 2em;
+            flex-direction: row;
+        }
+    }
+
+    .first-card {
+        overflow: hidden;
+
+        grid-template-columns: 100%;
+
+        .first-card-image {
+            width: 100%;
+            aspect-ratio: 1/1;
+
+            border-radius: 0;
+
+            background-position: 60% 0%;
+        }
+
+        .first-card-info {
+            text-align: start;
+        }
+    }
+
+    .info-item,
+    .brand-item {
+        display: flex;
+        gap: 1.5rem;
+        flex-direction: column;
+
+
+        &:nth-child(odd) {
+            align-items: flex-end;
+        }
+
+        &:nth-child(even) {
+            align-items: flex-start;
+            flex-direction: column-reverse;
+        }
+    }
+
+    .brand-item {
+        img {
+            width: unset;
+        }
+
+        &:nth-child(1) {
+            img {
+                height: 2rem;
+            }
+        }
+
+        &:nth-child(2) {
+            img {
+                height: 3.5rem;
+            }
+        }
+
+        &:nth-child(3) {
+            img {
+                height: 3rem;
+            }
+        }
+    }
 }
